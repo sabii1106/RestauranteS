@@ -1,0 +1,30 @@
+.Resta{
+  background-color:rgb(235, 216, 133);
+  box-shadow: #613511 3px 3px 10px;
+
+}
+*{
+    box-sizing: border-box;
+
+}
+body,html{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(196, 121, 10);
+    
+}
+img{
+    width: 80%;
+
+}
+div{
+    margin: 2% auto;    
+    width: 60%;
+    height: 90%;
+    padding: 5%;
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+}
