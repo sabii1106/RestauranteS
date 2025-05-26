@@ -37,12 +37,13 @@ function Restaurante (props){
             return {...prevPreferencias, dislikes: prevPreferencias.dislikes - 1}
             
         });
-        //Si el valor de dislikes es 0, no se puede restar
+        
         if (preferencias.dislikes <= 0) {
-            mensajeErrorLikesNegativo("No se puede ser menor a cero");
+            mensajeErrorLikesNegativo("No se puede restar más dislikes");
             return;
         }
-//        RestarDislikes();
+        
+        RestarDislikes();
     }
     
     return (
