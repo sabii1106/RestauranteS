@@ -9,15 +9,23 @@ function App() {
   const [likesTotales, setLikesTotales] = useState(0);
   const SumarLikes = ()=> setLikesTotales(prev => prev + 1);
   const RestarDislikes = ()=> setLikesTotales(prev => prev - 1);
+  const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
+  const mensajeErrorLikesNegativo = (mensaje) => {
+    setMensajeErrorLikesNegativos(mensaje);
+    setTimeout(() => {
+      setMensajeErrorLikesNegativos("");
+    }, 3000);
+  };
   return (
     <div className="App">
       <h1>Cantidad likes: {likesTotales}</h1>
-
+      {mensajeErrorLikesNegativos && <h2 style={{color:"red"}}>{mensajeErrorLikesNegativos}</h2>}
       {
         restaurantes.map((restaurante,index)=>{
-          return <Restaurante key = {index} nombre = {restaurante.nombre} direccion = {restaurante.direccion} tipo = {restaurante.tipo} urlImagen={restaurante.urlImagen} SumarLikes={SumarLikes} RestarDislikes={RestarDislikes}></Restaurante>
+          return <Restaurante key = {index} nombre = {restaurante.nombre} direccion = {restaurante.direccion} tipo = {restaurante.tipo} urlImagen={restaurante.urlImagen} SumarLikes={SumarLikes} RestarDislikes={RestarDislikes} mensajeErrorLikesNegativo={mensajeErrorLikesNegativo}></Restaurante>
         })
       }
+      
     </div>
   );
 }

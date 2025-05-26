@@ -3,7 +3,7 @@ import "./Restaurante.css";
 function Restaurante (props){
     //const [likes, setLikes] = useState(0);
     //const [dislikes, setDislikes] = useState(0);
-    const {nombre, direccion, tipo, UrlImagen, SumarLikes,RestarDislikes}= props;
+    const {nombre, direccion, tipo, UrlImagen, SumarLikes,RestarDislikes,mensajeErrorLikesNegativo}= props;
     const [preferencias, setPreferencias] = useState({
         likes: 0,
         dislikes: 0,
@@ -37,7 +37,12 @@ function Restaurante (props){
             return {...prevPreferencias, dislikes: prevPreferencias.dislikes - 1}
             
         });
-        RestarDislikes();
+        //Si el valor de dislikes es 0, no se puede restar
+        if (preferencias.dislikes <= 0) {
+            mensajeErrorLikesNegativo("No se puede ser menor a cero");
+            return;
+        }
+//        RestarDislikes();
     }
     
     return (
