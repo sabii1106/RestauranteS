@@ -1,28 +1,31 @@
+body,html{
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(196, 121, 10);
+    margin: 5% 0 0 0;
+}
 .Restaurante{
   background-color:rgb(235, 216, 133);
   box-shadow: #613511 3px 3px 10px;
+  box-sizing: border-box;
 }
-*{
-    box-sizing: border-box;
-
-}
-body,html{
-    width: 90%;
-    height: 100vh;
-    background-color: rgb(196, 121, 10);
-}
-img{
-    width: 80%;
-
-}
+ 
 div{
     margin: 2% auto;    
     width: 60%;
-    height: 90%;
+    height: 80%;
     padding: 5%;
     display: flex;
     align-self: center;
     align-items: center;
     justify-content: center;
-    flex-direction: column-reverse;
+    flex-direction: column;
+}
+button{
+    width: 40%;
+    height: 50px;
+    background-color: rgb(151, 98, 18);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
