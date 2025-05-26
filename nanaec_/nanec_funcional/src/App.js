@@ -8,8 +8,17 @@ const restaurantes = [{nombre:"El Redil", direccion:"Shyris y Matamoros", tipo:"
 function App() {
   const [likesTotales, setLikesTotales] = useState(0);
   //validar aqui
-  const SumarLikes = ()=> setLikesTotales(prev => prev + 1);
-  const RestarDislikes = ()=> setLikesTotales(prev => prev - 1);
+  const SumarLikes = ()=> {
+    setLikesTotales(prev => prev + 1);
+  }
+  const RestarDislikes = ()=> {
+    if (likesTotales <= 0) {
+      mensajeErrorLikesNegativo("No se puede restar más likes");
+      return; 
+    } 
+    setLikesTotales(prev => prev - 1);
+  }
+    
   const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
   const mensajeErrorLikesNegativo = (mensaje) => {
     setMensajeErrorLikesNegativos(mensaje);
