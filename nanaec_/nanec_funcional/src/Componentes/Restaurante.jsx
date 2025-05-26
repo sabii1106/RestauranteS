@@ -3,7 +3,7 @@ import "./Restaurante.css";
 function Restaurante (props){
     //const [likes, setLikes] = useState(0);
     //const [dislikes, setDislikes] = useState(0);
-    const {nombre, direccion, tipo, UrlImagen, SumarLikes}= props;
+    const {nombre, direccion, tipo, UrlImagen, SumarLikes,RestarDislikes}= props;
     const [preferencias, setPreferencias] = useState({
         likes: 0,
         dislikes: 0,
@@ -34,12 +34,11 @@ function Restaurante (props){
     const handlerDislike = () => {
         setPreferencias(prevPreferencias => {
             //setDislikes(prevDislikes => prevDislikes - 1);
-            return {
-                ...prevPreferencias, dislikes: prevPreferencias.dislikes - 1
-            }
-        }
-        
-    )};
+            return {...prevPreferencias, dislikes: prevPreferencias.dislikes - 1}
+            
+        });
+        RestarDislikes();
+    }
     
     return (
         <div className="Restaurante">

@@ -8,14 +8,14 @@ const restaurantes = [{nombre:"El Redil", direccion:"Shyris y Matamoros", tipo:"
 function App() {
   const [likesTotales, setLikesTotales] = useState(0);
   const SumarLikes = ()=> setLikesTotales(prev => prev + 1);
-
+  const RestarDislikes = ()=> setLikesTotales(prev => prev - 1);
   return (
     <div className="App">
       <h1>Cantidad likes: {likesTotales}</h1>
 
       {
         restaurantes.map((restaurante,index)=>{
-          return <Restaurante key = {index} nombre = {restaurante.nombre} direccion = {restaurante.direccion} tipo = {restaurante.tipo} urlImagen={restaurante.urlImagen} SumarLikes={SumarLikes}></Restaurante>
+          return <Restaurante key = {index} nombre = {restaurante.nombre} direccion = {restaurante.direccion} tipo = {restaurante.tipo} urlImagen={restaurante.urlImagen} SumarLikes={SumarLikes} RestarDislikes={RestarDislikes}></Restaurante>
         })
       }
     </div>
