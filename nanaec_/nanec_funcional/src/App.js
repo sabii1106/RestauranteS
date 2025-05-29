@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {useState} from "react";
 import Restaurante from './Componentes/Restaurante';
+import CrearRestaurante from './Componentes/CrearRestaurante';
 const urlImagen1="https://static.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--1240x698@abc.jpg";
 const restaurantes = [{nombre:"El Redil", direccion:"Shyris y Matamoros", tipo:"Tradicional", urlImagen:"https://static.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--1240x698@abc.jpg"},{nombre:"Cafeteria", direccion:"Julio Cesar Villacres y N68F", tipo:"Cafeteria", urlImagen:"https://static.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--1240x698@abc.jpg"}, {nombre:"Restaurante los Pedrosa", direccion:"Presa y Zamora", tipo:"Comida Rápida", urlImagen:"https://static.abc.es/media/familia/2018/05/23/Minevera_Pasta-k4KC--1240x698@abc.jpg"}];
 
@@ -26,6 +27,14 @@ function App() {
       setMensajeErrorLikesNegativos("");
     }, 3000);
   };
+  const [state, setState] = React.useState({
+      nombre: "",
+      direccion: "",
+      tipo: "",
+      reputacion: ""
+  });
+
+  
   return (
     <div className="App">
       <h1>Cantidad likes: {likesTotales}</h1>
@@ -35,7 +44,7 @@ function App() {
           return <Restaurante key = {index} nombre = {restaurante.nombre} direccion = {restaurante.direccion} tipo = {restaurante.tipo} urlImagen={restaurante.urlImagen} SumarLikes={SumarLikes} RestarDislikes={RestarDislikes} mensajeErrorLikesNegativo={mensajeErrorLikesNegativo}></Restaurante>
         })
       }
-      
+      <CrearRestaurante state={state} setState={setState} />
     </div>
   );
 }
