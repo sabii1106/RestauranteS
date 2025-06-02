@@ -3,11 +3,19 @@ import Restaurante from "./Restaurante";
 
 function CrearRestaurante (props){
    
-        const handlerInsertar = (e,item) => {
-            alert("Ha pulsado la pelicula: " + item);
-        }
+        const handlerInsertar = () => {
+            const nuevoRestaurante = {
+                nombre: props.state.nombre,
+                direccion: props.state.direccion,
+                tipo: props.state.tipo,
+                reputacion: props.state.reputacion
+            };
+            props.agregarRestaurante(nuevoRestaurante);
+            // Opcional: limpiar formulario (props.setState({nombre:"", direccion:"", tipo:"", reputacion:""}))
+            }
 
-        return (
+
+        return (    
         <div className="CrearRestaurante">
             <label>Nombre:</label>
             <input type="text" value={props.state.nombre} onChange={(e) => props.setState({...props.state, nombre: e.target.value})} />

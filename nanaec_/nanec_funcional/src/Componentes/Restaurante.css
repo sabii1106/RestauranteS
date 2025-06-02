@@ -1,31 +1,155 @@
-body,html{
-    width: 100%;
-    height: 80vh;
-    background-color: rgb(196, 121, 10);
-    margin: 5% 0 0 0;
-}
-.Restaurante{
-  background-color:rgb(235, 216, 133);
-  box-shadow: #613511 3px 3px 10px;
+/* Reset básico para body y html */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #c4790a; /* tu color naranja */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 40px;
   box-sizing: border-box;
 }
- 
-div{
-    margin: 2% auto;    
-    width: 60%;
-    height: 80%;
-    padding: 5%;
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+/* Contenedor principal */
+.App {
+  width: 90%;
+  max-width: 900px;
+  background-color: #f3e9b6;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(97, 53, 17, 0.5);
+  padding: 20px 30px;
+  box-sizing: border-box;
 }
-button{
-    width: 40%;
-    height: 50px;
-    background-color: rgb(151, 98, 18);
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
+
+/* Estilo para cada restaurante */
+.Restaurante {
+  background-color: #ebd885;
+  box-shadow: 3px 3px 10px #613511;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 25px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.Restaurante:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen del restaurante */
+.Restaurante img {
+  width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+/* Información del restaurante */
+.Restaurante > div {
+  flex-grow: 1;
+}
+
+/* Titulos */
+.Restaurante h1 {
+  margin: 0 0 5px 0;
+  font-size: 1.5rem;
+  color: #4b2e04;
+}
+
+.Restaurante h3, .Restaurante h4 {
+  margin: 3px 0;
+  color: #5d3c01;
+  font-weight: normal;
+}
+
+/* Likes y Dislikes */
+.Restaurante h4 {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* Botones */
+button {
+  width: 60px;
+  height: 40px;
+  background-color: #976212;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #6e4709;
+}
+
+/* Contenedor de formulario CrearRestaurante */
+.CrearRestaurante {
+  background-color: #f7f1c9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 10px #613511;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Etiquetas y inputs */
+.CrearRestaurante label {
+  font-weight: 600;
+  color: #4b2e04;
+}
+
+.CrearRestaurante input[type="text"],
+.CrearRestaurante input[type="number"],
+.CrearRestaurante select {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.CrearRestaurante input[type="text"]:focus,
+.CrearRestaurante input[type="number"]:focus,
+.CrearRestaurante select:focus {
+  outline: none;
+  border-color: #976212;
+}
+
+/* Botón Insertar en el formulario */
+.CrearRestaurante button {
+  width: 100%;
+  height: 45px;
+  font-weight: 700;
+  background-color: #976212;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.CrearRestaurante button:hover {
+  background-color: #6e4709;
+}
+
+/* Mensaje de error */
+h2 {
+  color: #b80000;
+  margin-top: 10px;
+  font-weight: 700;
 }

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import "./Restaurante.css";
 function Restaurante (props){
-    //const [likes, setLikes] = useState(0);
-    //const [dislikes, setDislikes] = useState(0);
-    const {nombre, direccion, tipo, UrlImagen, SumarLikes,RestarDislikes,mensajeErrorLikesNegativo}= props;
+    
+    const {nombre, direccion, tipo, UrlImagen, SumarLikes,RestarDislikes, reputacion}= props;
+
     const [preferencias, setPreferencias] = useState({
         likes: 0,
         dislikes: 0,
@@ -46,6 +46,7 @@ function Restaurante (props){
             <h1>{nombre}</h1>
             <h3>{direccion}</h3>
             <h4>{tipo}</h4>
+            <h4>Reputación: {reputacion}</h4>
             <h4>Me gusta:{preferencias.likes}</h4>
             <h4>No me gusta:{preferencias.dislikes}</h4>
             <button onClick={handlerLike}>👍</button>
