@@ -1,5 +1,3 @@
-import React, {useState} from "react";
-import Restaurante from "./Restaurante";
 
 function CrearRestaurante (props){
    
@@ -8,10 +6,11 @@ function CrearRestaurante (props){
                 nombre: props.state.nombre,
                 direccion: props.state.direccion,
                 tipo: props.state.tipo,
-                reputacion: props.state.reputacion
+                reputacion: props.state.reputacion,
+                UrlImagen: props.state.UrlImagen
             };
             props.agregarRestaurante(nuevoRestaurante);
-            // Opcional: limpiar formulario (props.setState({nombre:"", direccion:"", tipo:"", reputacion:""}))
+            (props.setState({nombre:"", direccion:"", tipo:"", reputacion:"", UrlImagen:""}))//Se limpia el formulario
             }
 
 
@@ -35,7 +34,8 @@ function CrearRestaurante (props){
             </select>
             <label>Reputación:</label>
             <input type="number" value={props.state.reputacion} onChange={(e) => props.setState({...props.state, reputacion: e.target.value})} />
-            
+            <label>URL Imagen:</label>
+            <input type="text" value={props.state.UrlImagen} onChange={(e)=> props.setState({...props.state,UrlImagen: e.target.value})}/>
             <button onClick={handlerInsertar}>Insertar</button>
             
         </div>  

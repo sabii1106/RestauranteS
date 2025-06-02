@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import {useState} from "react";
 import "./Restaurante.css";
 function Restaurante (props){
     
@@ -12,6 +12,7 @@ function Restaurante (props){
     //react busca la optimización, y solo renderiza cuando
     //es necesario. Espera varias operaciones antes de renderizar
     //
+    
     const handlerLike = () =>{
         //setLikes(likes + 1); //Forma correcta de modificar el estado
         setPreferencias(prevPreferencias => {
@@ -21,7 +22,15 @@ function Restaurante (props){
         });
         SumarLikes();
     }
+    
 
+    const estrellas = () => {
+    let resultado = '';
+    for (let i = 0; i < reputacion; i++) {
+      resultado += '⭐';
+    }
+    return resultado;
+    };
 
         /*
         setLikes(prevLikes =>{
@@ -46,7 +55,7 @@ function Restaurante (props){
             <h1>{nombre}</h1>
             <h3>{direccion}</h3>
             <h4>{tipo}</h4>
-            <h4>Reputación: {reputacion}</h4>
+            <h4>Reputación: {estrellas()}</h4>
             <h4>Me gusta:{preferencias.likes}</h4>
             <h4>No me gusta:{preferencias.dislikes}</h4>
             <button onClick={handlerLike}>👍</button>
