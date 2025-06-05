@@ -1,16 +1,29 @@
 
 import Restaurante from './Restaurante';
 import {Link, useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
 function ListaRestaurantes({
-  restaurantes,
-  SumarLikes,
-  RestarDislikes,
-  mensajeErrorLikesNegativo,
-  mensajeErrorLikesNegativos,
-  likesTotales
+  restaurantes
 }) 
   {
+    const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
+    const [likesTotales, setLikesTotales] = useState(0);
     
+    const SumarLikes = () => setLikesTotales((prev) => prev + 1);
+
+    const RestarDislikes = () => {
+      if (likesTotales <= 0) {
+        mensajeErrorLikesNegativo("No se puede restar más likes");
+        return;
+      }
+      setLikesTotales((prev) => prev - 1);
+    };
+
+    const mensajeErrorLikesNegativo = (mensaje) => {
+      setMensajeErrorLikesNegativos(mensaje);
+      setTimeout(() => setMensajeErrorLikesNegativos(""), 3000);
+    };
+
   const navigate = useNavigate();
 
   const handleInicio = () => {

@@ -44,24 +44,6 @@ function App() {
       setRestaurantes((prev) => [...prev, nuevoRestaurante]);
     };
 
-  const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
-    const [likesTotales, setLikesTotales] = useState(0);
-    
-    const SumarLikes = () => setLikesTotales((prev) => prev + 1);
-
-    const RestarDislikes = () => {
-      if (likesTotales <= 0) {
-        mensajeErrorLikesNegativo("No se puede restar más likes");
-        return;
-      }
-      setLikesTotales((prev) => prev - 1);
-    };
-
-    const mensajeErrorLikesNegativo = (mensaje) => {
-      setMensajeErrorLikesNegativos(mensaje);
-      setTimeout(() => setMensajeErrorLikesNegativos(""), 3000);
-    };
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -80,11 +62,7 @@ function App() {
             element={
               <ListaRestaurantes
                 restaurantes={restaurantes}
-                SumarLikes={SumarLikes}
-                RestarDislikes={RestarDislikes}
-                mensajeErrorLikesNegativo={mensajeErrorLikesNegativo}
-                mensajeErrorLikesNegativos={mensajeErrorLikesNegativos}
-                likesTotales={likesTotales}
+
               />
             }
           ></Route>
