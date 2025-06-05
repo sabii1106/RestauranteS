@@ -1,3 +1,4 @@
+import { Link,useNavigate } from "react-router-dom";
 
 function CrearRestaurante (props){
    
@@ -10,12 +11,31 @@ function CrearRestaurante (props){
                 UrlImagen: props.state.UrlImagen
             };
             props.agregarRestaurante(nuevoRestaurante);
+            alert("Restaurante creado exitosamente");
             (props.setState({nombre:"", direccion:"", tipo:"", reputacion:"", UrlImagen:""}))//Se limpia el formulario
             }
-
+            const navigate = useNavigate();
+            const handleInicio = () => {
+                navigate("/");
+            }
+            const handleLista = () => {
+                navigate("/lista");
+            }
 
         return (    
         <div className="CrearRestaurante">
+            <p>Se utiliza el hook useNavigate</p>
+            <button onClick={handleInicio}>Volver al Inicio</button>
+            <button onClick={handleLista}>Ver lista</button>
+            <br /><br />
+            <p>Se utiliza Link</p>
+            <Link to="/">
+                <button>Volver al Inicio</button>
+            </Link>
+            <Link to="/lista">
+                <button>Ver Lista de Restaurantes</button>
+            </Link>
+
             <label>Nombre:</label>
             <input type="text" value={props.state.nombre} onChange={(e) => props.setState({...props.state, nombre: e.target.value})} />
             <label>Dirección:</label>
