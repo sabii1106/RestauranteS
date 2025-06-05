@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import WrapperRestaurante from './Componentes/WrapperRestaurante';
+import ListaRestaurantes from "./Componentes/ListaRestaurantes";
+import CrearRestaurante from "./Componentes/CrearRestaurante";
 import Inicio from './Componentes/Inicio';
 import React, { useState } from 'react';
 
@@ -39,23 +40,54 @@ function App() {
     reputacion: "",
     UrlImagen: "",
   });
+  const agregarRestaurante = (nuevoRestaurante) => {
+      setRestaurantes((prev) => [...prev, nuevoRestaurante]);
+    };
+
+  const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
+    const [likesTotales, setLikesTotales] = useState(0);
+    
+    const SumarLikes = () => setLikesTotales((prev) => prev + 1);
+
+    const RestarDislikes = () => {
+      if (likesTotales <= 0) {
+        mensajeErrorLikesNegativo("No se puede restar más likes");
+        return;
+      }
+      setLikesTotales((prev) => prev - 1);
+    };
+
+    const mensajeErrorLikesNegativo = (mensaje) => {
+      setMensajeErrorLikesNegativos(mensaje);
+      setTimeout(() => setMensajeErrorLikesNegativos(""), 3000);
+    };
 
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inicio />} />
+          <Route path='/crear' element={
+            <CrearRestaurante
+            state={state}
+            setState={setState}
+            agregarRestaurante={agregarRestaurante}
+            />
+              } 
+              />
           <Route
-            path="/*"
+            path="/lista"
             element={
-              <WrapperRestaurante
+              <ListaRestaurantes
                 restaurantes={restaurantes}
-                setRestaurantes={setRestaurantes}
-                state={state}
-                setState={setState}
+                SumarLikes={SumarLikes}
+                RestarDislikes={RestarDislikes}
+                mensajeErrorLikesNegativo={mensajeErrorLikesNegativo}
+                mensajeErrorLikesNegativos={mensajeErrorLikesNegativos}
+                likesTotales={likesTotales}
               />
             }
-          />
+          ></Route>
         </Routes>
       </BrowserRouter>
     </div>

@@ -10,6 +10,7 @@ function ListaRestaurantes({
   likesTotales
 }) 
   {
+    
   const navigate = useNavigate();
 
   const handleInicio = () => {
