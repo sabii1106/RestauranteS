@@ -3,7 +3,8 @@ import Restaurante from './Restaurante';
 import {Link, useNavigate} from 'react-router-dom';
 import React, { useState } from 'react';
 function ListaRestaurantes({
-  restaurantes
+  restaurantes, 
+  handleEliminar
 }) 
   {
     const [mensajeErrorLikesNegativos, setMensajeErrorLikesNegativos] = useState("");
@@ -32,6 +33,7 @@ function ListaRestaurantes({
   const handleCrear = () => {
     navigate("/crear");
   }
+
   return (
     <div className="ListaRestaurantes">
       <p>Se utiliza el hook useNavigate</p>
@@ -49,6 +51,7 @@ function ListaRestaurantes({
       {restaurantes.map((restaurante, index) => (
         <Restaurante
           key={index}
+          index={index}
           nombre={restaurante.nombre}
           direccion={restaurante.direccion}
           tipo={restaurante.tipo}
@@ -57,6 +60,7 @@ function ListaRestaurantes({
           SumarLikes={SumarLikes}
           RestarDislikes={RestarDislikes}
           mensajeErrorLikesNegativo={mensajeErrorLikesNegativo}
+          handleEliminar={handleEliminar}
         />
       ))}
     </div>

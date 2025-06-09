@@ -43,7 +43,11 @@ function App() {
   const agregarRestaurante = (nuevoRestaurante) => {
       setRestaurantes((prev) => [...prev, nuevoRestaurante]);
     };
-
+  const eliminarRestaurante = (index) => {
+  setRestaurantes(prev =>
+    prev.filter((_, i) => i !== index)
+  );
+};
   return (
     <div className="App">
       <BrowserRouter>
@@ -62,6 +66,7 @@ function App() {
             element={
               <ListaRestaurantes
                 restaurantes={restaurantes}
+                handleEliminar={eliminarRestaurante}
 
               />
             }
