@@ -40,14 +40,17 @@ function App() {
     reputacion: "",
     UrlImagen: "",
   });
+
   const agregarRestaurante = (nuevoRestaurante) => {
-      setRestaurantes((prev) => [...prev, nuevoRestaurante]);
-    };
+    setRestaurantes((prev) => [...prev, nuevoRestaurante]);
+  };
+
   const eliminarRestaurante = (index) => {
-  setRestaurantes(prev =>
-    prev.filter((_, i) => i !== index)
-  );
-};
+    setRestaurantes((prev) =>
+      prev.filter((_, i) => i !== index)
+    );
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -59,15 +62,14 @@ function App() {
             setState={setState}
             agregarRestaurante={agregarRestaurante}
             />
-              } 
-              />
+            } 
+            />
           <Route
             path="/lista"
             element={
               <ListaRestaurantes
                 restaurantes={restaurantes}
                 handleEliminar={eliminarRestaurante}
-
               />
             }
           ></Route>

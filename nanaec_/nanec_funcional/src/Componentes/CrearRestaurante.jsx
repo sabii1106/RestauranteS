@@ -2,27 +2,32 @@ import { Link,useNavigate } from "react-router-dom";
 
 function CrearRestaurante (props){
    
-        const handlerInsertar = () => {
-            const nuevoRestaurante = {
-                nombre: props.state.nombre,
-                direccion: props.state.direccion,
-                tipo: props.state.tipo,
-                reputacion: props.state.reputacion,
-                UrlImagen: props.state.UrlImagen
-            };
-            props.agregarRestaurante(nuevoRestaurante);
-            alert("Restaurante creado exitosamente");
-            (props.setState({nombre:"", direccion:"", tipo:"", reputacion:"", UrlImagen:""}))//Se limpia el formulario
-            }
-            const navigate = useNavigate();
-            const handleInicio = () => {
-                navigate("/");
-            }
-            const handleLista = () => {
-                navigate("/lista");
-            }
+    const handlerInsertar = () => {
+        const nuevoRestaurante = {
+            nombre: props.state.nombre,
+            direccion: props.state.direccion,
+            tipo: props.state.tipo,
+            reputacion: props.state.reputacion,
+            UrlImagen: props.state.UrlImagen
+        };
 
-        return (    
+        props.agregarRestaurante(nuevoRestaurante);
+        alert("Restaurante creado exitosamente");
+        //Se limpia el formulario
+        (props.setState({nombre:"", direccion:"", tipo:"", reputacion:"", UrlImagen:""}))
+    }
+
+    const navigate = useNavigate();
+
+    const handleInicio = () => {
+        navigate("/");
+    }
+
+    const handleLista = () => {
+        navigate("/lista");
+    }
+
+    return (    
         <div className="CrearRestaurante">
             <p>Se utiliza el hook useNavigate</p>
             <button onClick={handleInicio}>Volver al Inicio</button>
@@ -56,11 +61,45 @@ function CrearRestaurante (props){
             <input type="number" value={props.state.reputacion} onChange={(e) => props.setState({...props.state, reputacion: e.target.value})} />
             <label>URL Imagen:</label>
             <input type="text" value={props.state.UrlImagen} onChange={(e)=> props.setState({...props.state,UrlImagen: e.target.value})}/>
+            
+            <label>Categoría:</label>
+            <div>
+                <label>
+                    <input
+                        type="radio"
+                        name="categoria"
+                        value="Vegetariana"
+                        checked={props.state.categoria === "Vegetariana"}
+                        onChange={(e) => props.setState({ ...props.state, categoria: e.target.value })}
+                    />
+                    Vegetariana
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="categoria"
+                        value="Carnívora"
+                        checked={props.state.categoria === "Carnívora"}
+                        onChange={(e) => props.setState({ ...props.state, categoria: e.target.value })}
+                    />
+                    Carnívora
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="categoria"
+                        value="Vegana"
+                        checked={props.state.categoria === "Vegana"}
+                        onChange={(e) => props.setState({ ...props.state, categoria: e.target.value })}
+                    />
+                    Vegana
+                </label>
+            </div>
+            
             <button onClick={handlerInsertar}>Insertar</button>
             
         </div>  
     );      
-    
 }
 
 export default CrearRestaurante;
