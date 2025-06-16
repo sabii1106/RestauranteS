@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import ListaRestaurantes from "./Componentes/ListaRestaurantes";
 import CrearRestaurante from "./Componentes/CrearRestaurante";
+import ComponenteAxios from './Componentes/ComponeteAxios';
 import Inicio from './Componentes/Inicio';
 import React, { useState } from 'react';
 
@@ -33,6 +34,8 @@ function App() {
           "https://th.bing.com/th/id/OIP.Lq4y_ACmvY-av-0cmcxQeQHaE7?w=287&h=191&c=7&r=0&o=5&pid=1.7",
       },
     ]);
+
+
   const [state, setState] = useState({
     nombre: "",
     direccion: "",
@@ -73,6 +76,7 @@ function App() {
               />
             }
           ></Route>
+          <Route path ="/axios" element={<ComponenteAxios />} />
         </Routes>
       </BrowserRouter>
     </div>
@@ -80,4 +84,5 @@ function App() {
 }
 
 export default App;
+
 
