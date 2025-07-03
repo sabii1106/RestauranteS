@@ -1,42 +1,92 @@
 {
   "restaurantes": [
     {
-      "id":1,
-      "nombre": "El Redil",
-      "direccion": "Shyris y Matamoros",
-      "tipo": "Tradicional",
-      "reputacion": 1,
-      "UrlImagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkGTV9ptpoJ1nv8SE8QJ_A4-pCjnd46axWiA&s"
+      "id": "1",
+      "nombre": "La Trattoria",
+      "direccion": "Av. Italia 123",
+      "tipo": "Italiana",
+      "reputacion": "11",
+      "UrlImagen": "https://images.unsplash.com/photo-italiana.jpg"
     },
     {
-      "id":2,
-      "nombre": "Cafeteria",
-      "direccion": "Julio Cesar Villacres y N68F",
-      "tipo": "Cafeteria",
-      "reputacion": 2,
-      "UrlImagen": "https://th.bing.com/th/id/OIP.HXhKQnE0QlerZWTn5b27_gHaE8?w=274&h=183&c=7&r=0&o=5&pid=1.7"
+      "id": "2",
+      "nombre": "El Asador",
+      "direccion": "Calle Fuego 456",
+      "tipo": "Parrilla",
+      "reputacion": "4",
+      "UrlImagen": "https://images.unsplash.com/photo-parrilla.jpg"
     },
     {
-      "id":3,
-      "nombre": "Restaurante los Pedrosa",
-      "direccion": "Presa y Zamora",
-      "tipo": "Comida Rápida",
-      "reputacion": 5,
-      "UrlImagen": "https://th.bing.com/th/id/OIP.Lq4y_ACmvY-av-0cmcxQeQHaE7?w=287&h=191&c=7&r=0&o=5&pid=1.7"
+      "id": "3",
+      "nombre": "Sushi House",
+      "direccion": "Av. Japón 789",
+      "tipo": "Japonesa",
+      "reputacion": "5",
+      "UrlImagen": "https://images.unsplash.com/photo-sushi.jpg"
+    },
+    {
+      "id": "4",
+      "nombre": "La Taquería",
+      "direccion": "Calle México 321",
+      "tipo": "Mexicana",
+      "reputacion": "10",
+      "UrlImagen": "https://images.unsplash.com/photo-mexicana.jpg"
+    },
+    {
+      "id": "5",
+      "nombre": "Veggie Life",
+      "direccion": "Av. Verde 654",
+      "tipo": "Vegetariana",
+      "reputacion": "3",
+      "UrlImagen": "https://images.unsplash.com/photo-vegetariana.jpg"
+    },
+    {
+      "id": "df30",
+      "nombre": "",
+      "direccion": "",
+      "tipo": "",
+      "reputacion": "",
+      "UrlImagen": ""
+    },
+    {
+      "id": "a2b2",
+      "nombre": "",
+      "direccion": "",
+      "tipo": "",
+      "reputacion": "7",
+      "UrlImagen": ""
     }
   ],
   "clientes": [
     {
-        "id": 1,
+      "id": "1",
       "nombre": "Juan Perez",
       "direccion": "Av. 10 de Agosto",
       "telefono": "0991234567"
     },
     {
-        "id": 2,
+      "id": "2",
       "nombre": "Maria Gomez",
       "direccion": "Calle Foch",
       "telefono": "0987654321"
+    },
+    {
+      "id": "3",
+      "nombre": "Carlos Ruiz",
+      "direccion": "Av. Amazonas 100",
+      "telefono": "0976543210"
+    },
+    {
+      "id": "4",
+      "nombre": "Lucía Torres",
+      "direccion": "Calle Sucre 200",
+      "telefono": "0965432109"
+    },
+    {
+      "id": "5",
+      "nombre": "Pedro Sánchez",
+      "direccion": "Av. Colón 300",
+      "telefono": "0954321098"
     }
   ]
 }
